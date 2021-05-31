@@ -1,0 +1,43 @@
+<template>
+    <div class={classes}>
+        <div class="slds-form-element__control">
+            <div class="slds-combobox_container">
+                <div class={dropdownClasses} data-id="resultBox" aria-expanded="false" aria-haspopup="listbox" role="combobox">
+                    <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon slds-input-has-icon_left-right" role="none">
+                        <lightning-input
+                            label={label}
+                            type="search"
+                            value={value}
+                            placeholder={placeholder}
+                            onchange={filterOptions} 
+                            onfocus={handleFocus}
+                            onblur={handleBlur}
+                        >
+                        </lightning-input>
+                    </div>
+                    <!-- Display option Results -->
+                    <div id="searchResults" class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid" role="listbox">
+                        <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                            <template if:true={filteredOptions.length}>
+                                <template for:each={filteredOptions} for:item="option">
+                                    <li role="presentation" class="slds-listbox__item" key={option.value}>
+                                        <div data-value={option.value} data-label={option.label} onclick={handleSelectOption} class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta" role="option">
+                                            <span class="slds-listbox__option-text slds-listbox__option-text_entity slds-p-around--xx-small">{option.label}</span>
+                                        </div>
+                                    </li>
+                                </template>
+                            </template>
+                            <template if:true={noOptions}>
+                                <li role="presentation" class="slds-align--absolute-center slds-listbox__item">
+                                    <div class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta" role="option">
+                                        <span class="slds-listbox__option-text slds-listbox__option-text_entity slds-p-around--xx-small">No options found.</span>
+                                    </div>
+                                </li>
+                            </template>
+                        </ul>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
