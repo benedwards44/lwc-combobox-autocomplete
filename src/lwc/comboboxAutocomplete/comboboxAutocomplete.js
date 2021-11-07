@@ -62,6 +62,6 @@ export default class ComboboxAutocomplete extends LightningElement {
     handleBlur() {
         // Timeout to ensure click event is captured before the 
         // options are hidden
-        setTimeout(() => { this.isFocussed = false; }, 100);
+        setTimeout(() => { this.isFocussed = false; }, 500);
     }
 }
