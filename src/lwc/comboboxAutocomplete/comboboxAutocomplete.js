@@ -16,7 +16,8 @@ export default class ComboboxAutocomplete extends LightningElement {
 
     constructor() {
         super();
-        this.handleOutsideClick = this.handleOutsideClick.bind(this);
+        //this.handleOutsideClick = 
+        this.handleOutsideClick.bind(this);
     }
 
     connectedCallback() {
