@@ -13,20 +13,21 @@ export default class ComboboxAutocomplete extends LightningElement {
 
     filteredOptions = [];
     domElement;
+    
+    _handleOutsideClick;
 
     constructor() {
         super();
-        //this.handleOutsideClick = 
-        this.handleOutsideClick.bind(this);
+        this._handleOutsideClick = this.handleOutsideClick.bind(this);
     }
 
     connectedCallback() {
         this.filteredOptions = [...this.options];
-        document.addEventListener('click', this.handleOutsideClick);
+        document.addEventListener('click', this._handleOutsideClick);
     }
 
     disconnectedCallback() {
-        document.removeEventListener('click', this.handleOutsideClick);
+        document.removeEventListener('click', this._handleOutsideClick);
     }
 
     filterOptions(event) {
